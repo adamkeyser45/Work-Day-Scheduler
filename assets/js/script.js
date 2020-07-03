@@ -1,17 +1,22 @@
-// var for array of saved tasks
-var dailyTasks = JSON.parse(localStorage.getItem('dailyTasks')) || [];
 
 
-// function to render the tasks to each section
-function renderTasks(dailyTasks) {
-    $(".taskarea").empty();
+// load saved tasks to time slots
+function loadTasks() {
+    $(".task9").text() = localStorage.getItem("task9");
+};
 
-    for (var i = 0; i < dailyTasks.length; i++) {
-        $("<p>").text(dailyTasks[i]);
-    }
-}
+// saves text to localStorage and returns textarea to <p>
+$(".saveBtn").on("click", function() {
 
+    // replace the textarea with a p element
+    var text = $(".form-control").val().trim();
+    var taskP = $("<p>")
+        .text(text);
+    $(".form-control").replaceWith(taskP);
 
+    // save to localStorage
+    localStorage.setItem('task9', text);
+});
 
 
 // Displays Current Date and Time below the header
@@ -35,3 +40,4 @@ $(".row").on("click", "p", function() {
 
 
 currentDate();
+loadTasks();
