@@ -18,19 +18,18 @@
 var loadTasks = function() {
     $("#task9").html(localStorage.getItem("task9"));
 
+
 };
 
 // saves text to localStorage and returns textarea to <p>
 $(".saveBtn").on("click", function() {
-    console.log($(this));
-    // replace the textarea with a p element
-    var text = $(".form-control").val();
-    var taskP = $("<p>")
-        .text(text);
-    $(".form-control").replaceWith(taskP);
+    var time = $(this)[0].previousElementSibling.id;
+    var text = $(this)[0].previousElementSibling.text;
+
 
     // save to localStorage
-    localStorage.setItem('task9', text);
+    localStorage.setItem(time, text);
+
 });
 
 // Displays Current Date and Time below the header
@@ -43,14 +42,6 @@ var currentDate = function() {
 setInterval(function() {
     currentDate();
 }, 1000);
-
-// click the p to change it to a textarea
-$(".row").on("click", "p", function() {
-    var text = $(this).text().trim();
-    var textInput = $("<textarea>").addClass("form-control").val(text);
-    $(this).replaceWith(textInput);
-    textInput.trigger("focus");
-});
 
 
 
