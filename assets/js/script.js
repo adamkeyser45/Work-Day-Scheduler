@@ -26,7 +26,7 @@ var loadTasks = function() {
     $("#task17").val(localStorage.getItem("task-17"));
 };
 
-// saves text to localStorage and returns textarea to <p>
+// saves text to localStorage
 $(".saveBtn").on("click", function() {
     var time = $(this).parent().attr("id");
     var text = $(this).siblings(".description").val();
