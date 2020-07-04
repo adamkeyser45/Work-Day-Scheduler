@@ -1,34 +1,41 @@
-// $(".time-block").each(function () {
-//     var taskHour = parseInt($(this).attr("id").split("-")[1]);
 
-//     if (taskHour > moment().hour()) {
-//         $(this).addClass("past");
-//     }
-//     else if (taskHour = moment().hour()) {
-//         $(this).addClass("present");
-//     }
-//     else if (taskHour = moment().hour()) {
-//         $(this).addClass("future");
-//     };
-    
-// })
+// checks the time of each task and applies the correct class
+$(".time-block").each(function () {
+    var taskHour = parseInt($(this).attr("id").split("-")[1]);
+
+    if (taskHour > moment().hour()) {
+        $(this).addClass("past");
+    }
+    else if (taskHour = moment().hour()) {
+        $(this).addClass("present");
+    }
+    else if (taskHour = moment().hour()) {
+        $(this).addClass("future");
+    };
+})
 
 
 // load saved tasks to time slots
 var loadTasks = function() {
-    $("#task9").html(localStorage.getItem("task9"));
-
-
+    $("#task9").val(localStorage.getItem("task-9"));
+    $("#task10").val(localStorage.getItem("task-10"));
+    $("#task11").val(localStorage.getItem("task-11"));
+    $("#task12").val(localStorage.getItem("task-12"));
+    $("#task13").val(localStorage.getItem("task-13"));
+    $("#task14").val(localStorage.getItem("task-14"));
+    $("#task15").val(localStorage.getItem("task-15"));
+    $("#task16").val(localStorage.getItem("task-16"));
+    $("#task17").val(localStorage.getItem("task-17"));
 };
 
 // saves text to localStorage and returns textarea to <p>
 $(".saveBtn").on("click", function() {
-    var time = $(this)[0].previousElementSibling.id;
-    var text = $(this)[0].previousElementSibling.text;
-
-
-    // save to localStorage
-    localStorage.setItem(time, text);
+    
+    var time = $(this).parent().attr("id");
+    var text = $(this).siblings(".description").val();
+    //set items in local storage
+    localStorage.setItem(time,text);
+    console.log(text,time);
 
 });
 
