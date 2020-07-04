@@ -1,4 +1,3 @@
-
 // checks the time of each task and applies the correct class
 $(".time-block").each(function () {
     var taskHour = parseInt($(this).attr("id").split("-")[1]);
@@ -13,7 +12,6 @@ $(".time-block").each(function () {
         $(this).addClass("future");
     };
 })
-
 
 // load saved tasks to time slots
 var loadTasks = function() {
@@ -30,13 +28,11 @@ var loadTasks = function() {
 
 // saves text to localStorage and returns textarea to <p>
 $(".saveBtn").on("click", function() {
-    
     var time = $(this).parent().attr("id");
     var text = $(this).siblings(".description").val();
     //set items in local storage
     localStorage.setItem(time,text);
     console.log(text,time);
-
 });
 
 // Displays Current Date and Time below the header
@@ -49,8 +45,6 @@ var currentDate = function() {
 setInterval(function() {
     currentDate();
 }, 1000);
-
-
 
 currentDate();
 loadTasks();
