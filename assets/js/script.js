@@ -3,13 +3,13 @@
 $(".time-block").each(function () {
     var taskHour = parseInt($(this).attr("id").split("-")[1]);
 
-    if (taskHour > moment().hour()) {
+    if (taskHour < moment().hour()) {
         $(this).addClass("past");
     }
-    else if (taskHour = moment().hour()) {
+    else if (taskHour === moment().hour()) {
         $(this).addClass("present");
     }
-    else if (taskHour = moment().hour()) {
+    else if (taskHour > moment().hour()) {
         $(this).addClass("future");
     };
 })
