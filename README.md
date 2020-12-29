@@ -1,4 +1,4 @@
-# mod5challenge
+# Work Day Scheduler
 Creating a daily planner application using jQuery, Bootstrap, and Moment.js
 
 ## Description: 
